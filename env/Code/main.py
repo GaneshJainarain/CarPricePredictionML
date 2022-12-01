@@ -3,7 +3,9 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 df = pd.read_csv('env/Code/cardata.csv')
+print("First Five Instances of Dataframe:")
 print(df.head())
+print("Shape of Our Dataframe:")
 print(df.shape)
 
 '''

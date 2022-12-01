@@ -14,10 +14,15 @@ fuel
 seller_type
 transmission
 Owner
-
+## Reading our Data into a Pandas Dataframe
+- Read our data into a pandas dataframe, with .read_csv 
+- Print out the head of our dataframe with .head() 
+- Observe the shape of our dataframe with .shape 
 ```python
-import pandas as pd
 df = pd.read_csv('env/Code/cardata.csv')
+print("First Five Instances of our Dataframe:")
 print(df.head())
+print("Shape of Our Dataframe:")
+print(df.shape)
 ```
-![Pandas Head and Shape for dataframe](env/Code/TerminalOutput/PandasShape&Head.png)
+![Pandas Head and Shape for Data-frame](env/Code/TerminalOutput/PandasShape&Head.png)
