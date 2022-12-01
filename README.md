@@ -14,3 +14,10 @@ fuel
 seller_type
 transmission
 Owner
+
+```python
+import pandas as pd
+df = pd.read_csv('env/Code/cardata.csv')
+print(df.head())
+```
+![Pandas Head and Shape for dataframe](env/Code/TerminalOutput/PandasShape&Head.png)
