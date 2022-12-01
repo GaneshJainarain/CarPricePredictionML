@@ -34,7 +34,7 @@ final_dataset=final_dataset.drop(['Current Year'],axis=1)
 print(final_dataset.head())
 print(final_dataset.corr())
 
-
+'''
 #sns.pairplot(final_dataset)
 #get correlations of each features in dataset
 corrmat = final_dataset.corr()
@@ -43,4 +43,10 @@ top_corr_features = corrmat.index
 #plot heat map
 print(sns.heatmap(final_dataset[top_corr_features].corr(),annot=True,cmap="RdYlGn"))
 plt.show()
+'''
+#Selling Price is the dependent Feature everything else is an Independent Feature
+X = final_dataset.iloc[:,1:]
+y = final_dataset.iloc[:,0]
 
+print(X.head())
+print(y.head())
