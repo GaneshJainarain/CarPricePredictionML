@@ -8,12 +8,12 @@ print(df.head())
 print("Shape of Our Dataframe:")
 print(df.shape)
 
-'''
 print(df['Seller_Type'].unique())
 print(df['Fuel_Type'].unique())
 print(df['Transmission'].unique())
 print(df['Owner'].unique())
 
+'''
 ##check missing values
 print(df.isnull().sum())
 
