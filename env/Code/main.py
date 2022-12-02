@@ -32,6 +32,9 @@ print(final_dataset.head())
 final_dataset.drop(['Year'],axis=1,inplace=True)
 print(final_dataset.head())
 
+final_dataset.drop(['Current Year'],axis=1,inplace=True)
+print(final_dataset.head())
+
 '''
 final_dataset=pd.get_dummies(final_dataset,drop_first=True)
 print(final_dataset.head())

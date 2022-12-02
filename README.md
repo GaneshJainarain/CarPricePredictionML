@@ -108,6 +108,15 @@ print(final_dataset.head())
 ```
 ![Drop Year Column](env/Code/TerminalOutput/DropYearCol.png)
 
+```python
+#We then drop the hardcoded Current Year Column 
+
+final_dataset.drop(['Current Year'],axis=1,inplace=True)
+print(final_dataset.head())
+```
+![Drop Current Year Column](env/Code/TerminalOutput/DropCurrentYearCol.png)
+
+
 
 
 
