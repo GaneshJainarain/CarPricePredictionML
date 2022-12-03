@@ -189,6 +189,8 @@ plt.show()
 ```
 ![Correlations Heat Map](env/Code/TerminalOutput/CorrelationsHeatMap.png)
 
+With the help of this heat map we can clearly see some correlations with some features, Fuel_Type_Diesel is negatively correlated with Fuel_Type_Petrol denoted with a dark red color and Selling_Price and Present_Price are positively correlated denoted by a dark green color.
+
 
 
 
