@@ -172,5 +172,23 @@ print(final_dataset.corr())
 
 ![Checking for Correlations amongst our features](env/Code/TerminalOutput/Correlations.png)
 
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+corrmat = final_dataset.corr()
+top_corr_features = corrmat.index
+
+plt.figure(figsize=(10,10))
+
+#plot heat map
+
+print(sns.heatmap(final_dataset[top_corr_features].corr(),annot=True,cmap="RdYlGn"))
+
+plt.show()
+```
+![Correlations Heat Map](env/Code/TerminalOutput/CorrelationsHeatMap.png)
+
+
 
 
