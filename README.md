@@ -71,6 +71,7 @@ print(df['Owner'].unique())
 ### Checking to see if we have any missing or Null values
 
 ```python
+#As you can see we have no missing or null values
 print(df.isnull().sum())
 ```
 ![Missing Or Null Values](env/Code/TerminalOutput/MissingNullVals.png)
@@ -116,6 +117,45 @@ print(final_dataset.head())
 ```
 ![Drop Current Year Column](env/Code/TerminalOutput/DropCurrentYearCol.png)
 
+
+### Applying One Hot Encoding to Categorical Features
+
+Categorical Features in our final dataset are Fuel_Type, Transmission and Owner, 
+
+The Fuel_Type Column turns into multiple columns --> Fuel_Type_Diesel, Fuel_Type_Petrol, and CNG, notice how we don't have a column for CNG, the CNG column is denoted by a 0 value in both Fuel_Type_Diesel and Fuel_Type_Petrol
+
+Fuel_Type_Diesel | Fuel_Type_Petrol
+        0        |        0    --> CNG
+        0        |        0    --> CNG
+        1        |        0
+        0        |        1
+
+
+This means that a value of 1 is assigned to that particular row of CNG but we don't need it since we know that if the fuel type isn't petrol or diesel it has to be CNG
+
+
+```python
+
+
+final_dataset = pd.get_dummies(final_dataset,drop_first=True)
+print(final_dataset.head())
+
+```
+![Drop Current Year Column](env/Code/TerminalOutput/DropCurrentYearCol.png)
+
+### What is a Dummy Variable Trap?
+
+In linear regression models, to create a model that can infer relationships between features (having categorical data) and the outcome, we use the dummy variable technique.
+
+A “Dummy Variable” or “Indicator Variable” is an artificial variable created to represent an attribute with two or more distinct categories/levels.
+
+The dummy variable trap is a scenario in which the independent variables become multi-collinear after addition of dummy variables.
+
+Multi-collinearity is a phenomenon in which two or more variables are highly correlated. In simple words, it means value of one variable can be predicted from the values of other variable(s).
+
+This breaks the assumption of linear regression that observations should be independent of each other and this is what we called a dummy variable trap. By adding all the dummy variables in data, we have compromised the accuracy of the regression model.
+
+To avoid dummy variable trap we should always add one less (n-1) dummy variable then the total number of categories present in the categorical data (n) because the nth dummy variable is redundant as it carries no new information.
 
 
 
