@@ -124,11 +124,8 @@ Categorical Features in our final dataset are Fuel_Type, Transmission and Owner,
 
 The Fuel_Type Column turns into multiple columns --> Fuel_Type_Diesel, Fuel_Type_Petrol, and CNG, notice how we don't have a column for CNG, the CNG column is denoted by a 0 value in both Fuel_Type_Diesel and Fuel_Type_Petrol
 
-Fuel_Type_Diesel | Fuel_Type_Petrol
-        0        |        0    --> CNG
-        0        |        0    --> CNG
-        1        |        0
-        0        |        1
+
+![Dummy Variable](env/Code/TerminalOutput/DummyVar.png)
 
 
 This means that a value of 1 is assigned to that particular row of CNG but we don't need it since we know that if the fuel type isn't petrol or diesel it has to be CNG
