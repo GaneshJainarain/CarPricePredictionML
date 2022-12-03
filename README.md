@@ -154,9 +154,14 @@ This breaks the assumption of linear regression that observations should be inde
 
 To avoid dummy variable trap we should always add one less (n-1) dummy variable then the total number of categories present in the categorical data (n) because the nth dummy variable is redundant as it carries no new information.
 
+### Checking for Correlations amongst our features
 
+```python
 
+print(final_dataset.corr())
+```
 
+![Checking for Correlations amongst our features](env/Code/TerminalOutput/Correlations.png)
 
 
 
