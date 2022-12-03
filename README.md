@@ -156,6 +156,15 @@ To avoid dummy variable trap we should always add one less (n-1) dummy variable 
 
 ### Checking for Correlations amongst our features
 
+`What is Correlation?`
+The mutual relationship, covariation, or association between two or more variables is called Correlation. It is not concerned with either the changes in x or y individually, but with the measurement of simultaneous variations in both variables.
+
+Correlation is a highly applied technique in machine learning during data analysis and data mining. It can extract key problems from a given set of features, which can later cause significant damage during the fitting model.
+Data having non-correlated features have many benefits. Such as:
+- Learning of Algorithm will be faster
+- Interpretability will be high
+- Bias will be less
+
 ```python
 
 print(final_dataset.corr())
