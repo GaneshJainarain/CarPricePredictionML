@@ -191,6 +191,10 @@ plt.show()
 
 With the help of this heat map we can clearly see some correlations with some features, Fuel_Type_Diesel is negatively correlated with Fuel_Type_Petrol denoted with a dark red color and Selling_Price and Present_Price are positively correlated denoted by a dark green color.
 
+### Independent Vs Dependent Variables
 
+Dependent variables are nothing but the variable which holds the phenomena which we are studying.
+
+Independent variables are the ones which through we are trying to explain the value or effect of the output variable (dependent variable) by creating a relationship between an independent and dependent variable.
 
 

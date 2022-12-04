@@ -45,7 +45,7 @@ final_dataset.drop(['Current Year'],axis=1,inplace=True)
 
 final_dataset=pd.get_dummies(final_dataset,drop_first=True)
 
-#print(final_dataset.head())
+print(final_dataset.head())
 
 
 
@@ -58,13 +58,12 @@ corrmat = final_dataset.corr()
 top_corr_features = corrmat.index
 plt.figure(figsize=(10,10))
 #plot heat map
-print(sns.heatmap(final_dataset[top_corr_features].corr(),annot=True,cmap="RdYlGn"))
-plt.show()
-'''
+#print(sns.heatmap(final_dataset[top_corr_features].corr(),annot=True,cmap="RdYlGn"))
+#plt.show()
+
 #Selling Price is the dependent Feature everything else is an Independent Feature
 X = final_dataset.iloc[:,1:]
 y = final_dataset.iloc[:,0]
 
-#print(X.head()) 
-#print(y.head())
-'''
+print(X.head()) 
+print(y.head())
