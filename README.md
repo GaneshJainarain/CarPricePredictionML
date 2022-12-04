@@ -197,4 +197,17 @@ Dependent variables are nothing but the variable which holds the phenomena which
 
 Independent variables are the ones which through we are trying to explain the value or effect of the output variable (dependent variable) by creating a relationship between an independent and dependent variable.
 
+```python
+# Selling Price is the dependent Feature everything else is an Independent Feature
 
+X = final_dataset.iloc[:,1:]
+y = final_dataset.iloc[:,0]
+
+print("Our Independent Features:")
+print(X.head())
+
+print("Our Dependent Feature:")
+print(y.head())
+```
+
+![Independent and Dependent Features](env/Code/TerminalOutput/Indipendent&DDependdentVariables.png)

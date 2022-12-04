@@ -62,8 +62,11 @@ plt.figure(figsize=(10,10))
 #plt.show()
 
 #Selling Price is the dependent Feature everything else is an Independent Feature
+
 X = final_dataset.iloc[:,1:]
 y = final_dataset.iloc[:,0]
 
-print(X.head()) 
+print("Our Independent Features:")
+print(X.head())
+print("Our Dependent Feature:")
 print(y.head())
