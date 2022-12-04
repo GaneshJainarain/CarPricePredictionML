@@ -197,6 +197,12 @@ Dependent variables are nothing but the variable which holds the phenomena which
 
 Independent variables are the ones which through we are trying to explain the value or effect of the output variable (dependent variable) by creating a relationship between an independent and dependent variable.
 
+*Note* The iloc() function in python is one of the functions defined in the Pandas module that helps us to select a specific row or column from the data set. Using the iloc() function in python, we can easily retrieve any particular value from a row or column using index values. The iloc() function in python is one of the functions defined in the Pandas module that helps us to select a specific row or column from the data set. Using the iloc() function in python, we can easily retrieve any particular value from a row or column using index values.
+
+
+
+
+
 ```python
 # Selling Price is the dependent Feature everything else is an Independent Feature
 
