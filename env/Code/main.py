@@ -1,6 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.ensemble import ExtraTreesRegressor
 
 df = pd.read_csv('env/Code/cardata.csv')
 #print("First Five Instances of Dataframe:")
@@ -70,3 +71,13 @@ print("Our Independent Features:")
 print(X.head())
 print("Our Dependent Feature:")
 print(y.head())
+
+
+model = ExtraTreesRegressor()
+model.fit(X,y)
+print(model.feature_importances_)
+
+#plot graph of feature importances for better visualization
+feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+feat_importances.nlargest(5).plot(kind='barh')
+plt.show()
