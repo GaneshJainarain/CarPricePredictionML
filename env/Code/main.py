@@ -80,4 +80,4 @@ print(model.feature_importances_)
 #plot graph of feature importances for better visualization
 feat_importances = pd.Series(model.feature_importances_, index=X.columns)
 feat_importances.nlargest(5).plot(kind='barh')
-plt.show()
+plt.show() 
