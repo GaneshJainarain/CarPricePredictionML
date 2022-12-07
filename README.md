@@ -217,3 +217,5 @@ print(y.head())
 ```
 
 ![Independent and Dependent Features](env/Code/TerminalOutput/Indipendent&DDependdentVariables.png) 
+
+![Independent and Dependent Features](env/Code/TerminalOutput/FeatureImportanceGraph.png) 
