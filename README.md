@@ -237,9 +237,20 @@ The disadvantages of decision trees include:
 
 ##############################################################
 
-An extremely randomized tree regressor.
+`An extremely randomized tree regressor.`
 
-Extra-trees differ from classic decision trees in the way they are built. When looking for the best split to separate the samples of a node into two groups, random splits are drawn for each of the max_features randomly selected features and the best split among those is chosen. When max_features is set 1, this amounts to building a totally random decision tree.
+Extra Trees is an ensemble machine learning algorithm that combines the predictions from many decision trees.
+
+It is related to the widely used random forest algorithm. It can often achieve as-good or better performance than the random forest algorithm, although it uses a simpler algorithm to construct the decision trees used as members of the ensemble.
+
+It is also easy to use given that it has few key hyper-parameters and sensible heuristics for configuring these hyper-parameters.
+
+The Extra Trees algorithm works by creating a large number of unpruned decision trees from the training dataset. Predictions are made by averaging the prediction of the decision trees in the case of regression or using majority voting in the case of classification.
+
+- `Regression:` Predictions made by averaging predictions from decision trees.
+- `Classification:` Predictions made by majority voting from decision trees.
+
+
 
 ```python
 
