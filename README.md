@@ -201,8 +201,6 @@ Independent variables are the ones which through we are trying to explain the va
 
 ### Determining Feature Importance
 
-
-
 ```python
 # Selling Price is the dependent Feature everything else is an Independent Feature
 
@@ -218,4 +216,34 @@ print(y.head())
 
 ![Independent and Dependent Features](env/Code/TerminalOutput/Indipendent&DDependdentVariables.png) 
 
-![Independent and Dependent Features](env/Code/TerminalOutput/FeatureImportanceGraph.png) 
+![Feature Importance](env/Code/TerminalOutput/FeatureImportanceGraph.png) 
+
+### Decision Trees
+
+Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
+
+
+Some advantages of decision trees are:
+
+- Simple to understand and to interpret. Trees can be visualized.
+- Requires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this module does not support missing values.
+- The cost of using the tree (i.e., predicting data) is logarithmic in the number of data points used to train the tree.
+- Able to handle both numerical and categorical data. However, the scikit-learn implementation does not support categorical variables for now. Other techniques are usually specialized in analyzing datasets that have only one type of variable. See algorithms for more information.
+
+The disadvantages of decision trees include:
+
+- Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
+- Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.
+
+```python
+
+model = ExtraTreesRegressor()
+model.fit(X,y)
+print(model.feature_importances_)
+
+#plot graph of feature importances for better visualization
+feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+feat_importances.nlargest(5).plot(kind='barh')
+plt.show() 
+
+```
