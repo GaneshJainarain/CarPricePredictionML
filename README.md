@@ -297,3 +297,13 @@ We will use the sklearn module for training our random forest regression model, 
 - `max_samples` — This parameter assumes bootstrapping is set to True, if not, this parameter doesn’t apply. In the case of True, this value sets the largest size of each sample for each tree.
 
 Other important parameters are `min_samples_split`, `min_samples_lea`, `n_job`s`, and others that can be read in the sklearn’s RandomForestRegressor documentation.
+
+
+### Mean Squared Error
+
+`Mean Squared Error` (MSE) is the average of the summation of the squared difference between the actual output value and the predicted output value. Our goal is to reduce the MSE as much as possible.
+
+For example, if we have an actual output array of (3,5,7,9) and a predicted output of (4,5,7,7), then we could calculate the mean squared error as:
+((3-4)² + (5–5)² + (7–7)² +(9–7)²)/4 = (1+0+0+4)/4 = 5/4 = 1.25
+
+The root mean squared error (RMSE) is just simply the square root of the MSE, so the in this case the RMSE = 1.25^.5 = 1.12.
