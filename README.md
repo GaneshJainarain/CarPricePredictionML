@@ -120,7 +120,7 @@ print(final_dataset.head())
 
 ### Applying One Hot Encoding to Categorical Features
 
-Categorical Features in our final dataset are Fuel_Type, Transmission and Owner, 
+`Categorical Features` in our final dataset are Fuel_Type, Transmission and Owner, 
 
 The Fuel_Type Column turns into multiple columns --> Fuel_Type_Diesel, Fuel_Type_Petrol, and CNG, notice how we don't have a column for CNG, the CNG column is denoted by a 0 value in both Fuel_Type_Diesel and Fuel_Type_Petrol
 
@@ -159,7 +159,7 @@ To avoid dummy variable trap we should always add one less (n-1) dummy variable 
 `What is Correlation?`
 The mutual relationship, covariation, or association between two or more variables is called Correlation. It is not concerned with either the changes in x or y individually, but with the measurement of simultaneous variations in both variables.
 
-Correlation is a highly applied technique in machine learning during data analysis and data mining. It can extract key problems from a given set of features, which can later cause significant damage during the fitting model.
+`Correlation` is a highly applied technique in machine learning during data analysis and data mining. It can extract key problems from a given set of features, which can later cause significant damage during the fitting model.
 Data having non-correlated features have many benefits. Such as:
 - Learning of Algorithm will be faster
 - Interpretability will be high
@@ -193,9 +193,9 @@ With the help of this heat map we can clearly see some correlations with some fe
 
 ### Independent Vs Dependent Variables
 
-Dependent variables are nothing but the variable which holds the phenomena which we are studying.
+`Dependent Variables` are nothing but the variable which holds the phenomena which we are studying.
 
-Independent variables are the ones which through we are trying to explain the value or effect of the output variable (dependent variable) by creating a relationship between an independent and dependent variable.
+`Independent Variables` are the ones which through we are trying to explain the value or effect of the output variable (dependent variable) by creating a relationship between an independent and dependent variable.
 
 `Note` The iloc() function in python is one of the functions defined in the Pandas module that helps us to select a specific row or column from the data set. Using the iloc() function in python, we can easily retrieve any particular value from a row or column using index values. The iloc() function in python is one of the functions defined in the Pandas module that helps us to select a specific row or column from the data set. Using the iloc() function in python, we can easily retrieve any particular value from a row or column using index values.
 
@@ -218,9 +218,14 @@ print(y.head())
 
 ![Feature Importance](env/Code/TerminalOutput/FeatureImportanceGraph.png) 
 
+### Ensemble learning
+
+`Ensemble Learning` is the process of using multiple models, trained over the same data, averaging the results of each model ultimately finding a more powerful predictive/classification result. Our hope, and the requirement, for ensemble learning is that the errors of each model (in this case decision tree) are independent and different from tree to tree.
+
+
 ### Decision Trees
 
-Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
+`Decision Trees (DTs)` are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
 
 
 Some advantages of decision trees are:
@@ -237,7 +242,7 @@ The disadvantages of decision trees include:
 
 ##############################################################
 
-`An extremely randomized tree regressor.`
+### An extremely randomized tree regressor.
 
 Extra Trees is an ensemble machine learning algorithm that combines the predictions from many decision trees.
 
@@ -250,6 +255,10 @@ The Extra Trees algorithm works by creating a large number of unpruned decision 
 - `Regression:` Predictions made by averaging predictions from decision trees.
 - `Classification:` Predictions made by majority voting from decision trees.
 
+
+`What is a Series?`
+A Pandas Series is like a column in a table.
+It is a one-dimensional array holding data of any type.
 
 
 ```python
@@ -264,3 +273,8 @@ feat_importances.nlargest(5).plot(kind='barh')
 plt.show() 
 
 ```
+### Bootstrapping
+
+`Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
+
+The bootstrapping `Random Forest` algorithm combines ensemble learning methods with the decision tree framework to create multiple randomly drawn decision trees from the data, averaging the results to output a new result that often leads to strong predictions/classifications.
