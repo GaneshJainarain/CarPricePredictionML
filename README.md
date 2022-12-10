@@ -48,14 +48,14 @@ We can also observe that one feature is our output feature or `Dependent Feature
 
 ### Categorical Features
 
-Categorical data is non-numeric and often can be characterized into categories or groups. A simple example is color; red, blue, and yellow are all distinct colors.
+`Categorical data` is non-numeric and often can be characterized into categories or groups. A simple example is color; red, blue, and yellow are all distinct colors.
 We encode categorical data numerically because math is generally done using numbers. 
 
 A big part of natural language processing is converting text to numbers. Just like that, our algorithms cannot run and process data if that data is not numerical. Therefore, data scientists need to have tools at their disposal to transform colors like red, yellow, and blue into numbers like 1, 2, and 3 for all the backend math to take place. 
 
 ### One Hot Encoding
 
-One-hot encoding is a method of identifying whether a unique categorical value from a categorical feature is present or not. What I mean by this is that if our feature is primary color (and each row has only one primary color), one-hot encoding would represent whether the color present in each row is red, blue, or yellow. 
+`One-hot encoding` is a method of identifying whether a unique categorical value from a categorical feature is present or not. What I mean by this is that if our feature is primary color (and each row has only one primary color), one-hot encoding would represent whether the color present in each row is red, blue, or yellow. 
 
 This is accomplished by adding a new column for each possible color. With these three columns representing color in place for every row of the data, we go through each row and assign the value 1 to the column representing the color present in our current row and fill in the other color columns of that row with a 0 to represent their absence
 
@@ -228,14 +228,14 @@ print(y.head())
 `Decision Trees (DTs)` are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
 
 
-Some advantages of decision trees are:
+Some `advantages` of decision trees are:
 
 - Simple to understand and to interpret. Trees can be visualized.
 - Requires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this module does not support missing values.
 - The cost of using the tree (i.e., predicting data) is logarithmic in the number of data points used to train the tree.
 - Able to handle both numerical and categorical data. However, the scikit-learn implementation does not support categorical variables for now. Other techniques are usually specialized in analyzing datasets that have only one type of variable. See algorithms for more information.
 
-The disadvantages of decision trees include:
+The `disadvantages` of decision trees include:
 
 - Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
 - Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.
@@ -244,7 +244,7 @@ The disadvantages of decision trees include:
 
 ### An extremely randomized tree regressor.
 
-Extra Trees is an ensemble machine learning algorithm that combines the predictions from many decision trees.
+`Extra Trees` is an ensemble machine learning algorithm that combines the predictions from many decision trees.
 
 It is related to the widely used random forest algorithm. It can often achieve as-good or better performance than the random forest algorithm, although it uses a simpler algorithm to construct the decision trees used as members of the ensemble.
 
