@@ -278,3 +278,22 @@ plt.show()
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
 
 The bootstrapping `Random Forest` algorithm combines ensemble learning methods with the decision tree framework to create multiple randomly drawn decision trees from the data, averaging the results to output a new result that often leads to strong predictions/classifications.
+
+
+### Random Forest Regression Model
+
+We will use the sklearn module for training our random forest regression model, specifically the `RandomForestRegressor` function. The RandomForestRegressor documentation shows many different parameters we can select for our model. Some of the important parameters are highlighted below:
+
+- `n_estimators` — the number of decision trees you will be running in the model
+
+- `criterion` — this variable allows you to select the criterion (loss function) used to determine model outcomes. We can select from loss functions such as mean squared error (MSE) and mean absolute error (MAE). The default value is MSE.
+
+- `max_depth` — this sets the maximum possible depth of each tree
+
+- `max_features` — the maximum number of features the model will consider when determining a split
+
+- `bootstrap` — the default value for this is True, meaning the model follows bootstrapping principles (defined earlier)
+
+- `max_samples` — This parameter assumes bootstrapping is set to True, if not, this parameter doesn’t apply. In the case of True, this value sets the largest size of each sample for each tree.
+
+Other important parameters are `min_samples_split`, `min_samples_lea`, `n_job`s`, and others that can be read in the sklearn’s RandomForestRegressor documentation.
