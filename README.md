@@ -302,7 +302,7 @@ We will use the sklearn module for training our random forest regression model, 
 
 - `max_samples` — This parameter assumes bootstrapping is set to True, if not, this parameter doesn’t apply. In the case of True, this value sets the largest size of each sample for each tree.
 
-Other important parameters are `min_samples_split`, `min_samples_lea`, `n_job`s`, and others that can be read in the sklearn’s RandomForestRegressor documentation.
+Other important parameters are `min_samples_split`, `min_samples_leaf`, `n_job's`, and others that can be read in the sklearn’s RandomForestRegressor documentation.
 
 
 ### Mean Squared Error
@@ -321,10 +321,23 @@ So we’ve built a random forest model to solve our machine learning problem but
 `What are our options?` 
 Our first step should be to gather more data and perform `feature engineering`. Gathering more data and feature engineering usually has the greatest payoff in terms of time invested versus improved performance, but when we have exhausted all data sources, it’s time to move on to model `hyper-parameter tuning`.
 
+The best way to think about hyper-parameters is like the settings of an algorithm that can be `adjusted` to optimize performance.
 
+While model parameters are learned during training — such as the slope and intercept in a linear regression — hyper-parameters must be set by the data scientist before training. 
 
+In the case of a random forest, hyper-parameters include the number of decision trees in the forest and the number of features considered by each tree when splitting a node. (The parameters of a random forest are the variables and thresholds used to split each node learned during training).
 
+The best hyper-parameters are usually impossible to determine ahead of time, and tuning a model is where machine learning turns from a science into trial-and-error based engineering.
 
+Scikit-Learn implements a set of sensible default hyper-parameters for all models, but these are not guaranteed to be optimal for a problem.
+
+### Over-Fitting
+
+Hyper-parameter tuning relies more on experimental results than theory, and thus the best method to determine the optimal settings is to try many different combinations evaluate the performance of each model. However, evaluating each model only on the training set can lead to one of the most fundamental problems in machine learning: `overfitting`.
+
+If we optimize the model for the training data, then our model will score very well on the training set, but will not be able to generalize to new data, such as in a test set. 
+
+When a model performs highly on the `training set` but poorly on the `test set`, this is known as over-fitting, or essentially creating a model that knows the training set very well but cannot be applied to new problems. It’s like a student who has memorized the simple problems in the textbook but has no idea how to apply concepts in the messy real world.
 
 
 ### Training 
