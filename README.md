@@ -212,6 +212,12 @@ print(X.head())
 
 print("Our Dependent Feature:")
 print(y.head())
+
+#plot graph of feature importances for better visualization
+feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+feat_importances.nlargest(5).plot(kind='barh')
+plt.show() 
+
 ```
 
 ![Independent and Dependent Features](env/Code/TerminalOutput/Indipendent&DDependdentVariables.png) 
@@ -307,6 +313,19 @@ For example, if we have an actual output array of (3,5,7,9) and a predicted outp
 ((3-4)² + (5–5)² + (7–7)² +(9–7)²)/4 = (1+0+0+4)/4 = 5/4 = 1.25
 
 The root mean squared error (RMSE) is just simply the square root of the MSE, so the in this case the RMSE = 1.25^.5 = 1.12.
+
+### Hyper-Parameter Tuning
+
+So we’ve built a random forest model to solve our machine learning problem but we’re not too impressed by the results. 
+
+`What are our options?` 
+Our first step should be to gather more data and perform `feature engineering`. Gathering more data and feature engineering usually has the greatest payoff in terms of time invested versus improved performance, but when we have exhausted all data sources, it’s time to move on to model `hyper-parameter tuning`.
+
+
+
+
+
+
 
 ### Training 
 
