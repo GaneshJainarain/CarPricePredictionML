@@ -307,3 +307,7 @@ For example, if we have an actual output array of (3,5,7,9) and a predicted outp
 ((3-4)² + (5–5)² + (7–7)² +(9–7)²)/4 = (1+0+0+4)/4 = 5/4 = 1.25
 
 The root mean squared error (RMSE) is just simply the square root of the MSE, so the in this case the RMSE = 1.25^.5 = 1.12.
+
+### Training 
+
+One thing to consider when running random forest models on a large dataset is the potentially long training time. 
