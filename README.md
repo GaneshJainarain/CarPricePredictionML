@@ -339,6 +339,17 @@ If we optimize the model for the training data, then our model will score very w
 
 When a model performs highly on the `training set` but poorly on the `test set`, this is known as over-fitting, or essentially creating a model that knows the training set very well but cannot be applied to new problems. It’s like a student who has memorized the simple problems in the textbook but has no idea how to apply concepts in the messy real world.
 
+### Cross Validation
+
+An overfit model may look impressive on the training set, but will be useless in a real application. Therefore, the standard procedure for hyper-parameter optimization accounts for overfitting through cross validation.
+
+The technique of cross validation (CV) is best explained by example using the most common method, K-Fold CV. 
+
+When we approach a machine learning problem, we make sure to split our data into a training and a testing set. In K-Fold CV, we further split our training set into K number of subsets, called folds. We then iteratively fit the model K times, each time training the data on K-1 of the folds and evaluating on the Kth fold (called the validation data). 
+
+As an example, consider fitting a model with K = 5. The first iteration we train on the first four folds and evaluate on the fifth. The second time we train on the first, second, third, and fifth fold and evaluate on the fourth. 
+We repeat this procedure 3 more times, each time evaluating on a different fold. At the very end of training, we average the performance on each of the folds to come up with final validation metrics for the model.
+
 
 ### Training 
 
