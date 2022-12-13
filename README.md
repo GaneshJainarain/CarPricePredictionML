@@ -350,6 +350,38 @@ When we approach a machine learning problem, we make sure to split our data into
 As an example, consider fitting a model with K = 5. The first iteration we train on the first four folds and evaluate on the fifth. The second time we train on the first, second, third, and fifth fold and evaluate on the fourth. 
 We repeat this procedure 3 more times, each time evaluating on a different fold. At the very end of training, we `average the performance on each of the folds` to come up with final validation metrics for the model.
 
+### Random Hyperparameter Grid
+
+To use RandomizedSearchCV, we first need to create a parameter grid to sample from during fitting:
+
+```python
+# Number of trees in random forest
+n_estimators = [int(x) for x in np.linspace(start = 100, stop = 1200, num = 12)]
+# Number of features to consider at every split
+max_features = ['auto', 'sqrt']
+# Maximum number of levels in tree
+max_depth = [int(x) for x in np.linspace(5, 30, num = 6)]
+max_depth.append(None)
+# Minimum number of samples required to split a node
+min_samples_split = [2, 5, 10, 15, 100]
+# Minimum number of samples required at each leaf node
+min_samples_leaf = [1, 2, 5, 10]
+# Method of selecting samples for training each tree
+bootstrap = [True, False]
+#Create the random grid
+
+random_grid = {'n_estimators': n_estimators,
+               'max_features': max_features,
+               'max_depth': max_depth,
+               'min_samples_split': min_samples_split,
+               'min_samples_leaf': min_samples_leaf,
+               'bootstrap': [True, False]}
+
+pprint(random_grid)
+
+```
+On each iteration, the algorithm will choose a difference combination of the features. Altogether, there are 2 * 12 * 2 * 3 * 3 * 10 = 4320 settings! However, the benefit of a random search is that we are not trying every combination, but selecting at random to sample a wide range of values.
+
 
 ### Training 
 
