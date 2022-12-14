@@ -144,15 +144,15 @@ print(final_dataset.head())
 
 In linear regression models, to create a model that can infer relationships between features (having categorical data) and the outcome, we use the dummy variable technique.
 
-A “Dummy Variable” or “Indicator Variable” is an artificial variable created to represent an attribute with two or more distinct categories/levels.
+A `“Dummy Variable”` or `“Indicator Variable”` is an artificial variable created to represent an attribute with two or more distinct categories/levels.
 
-The dummy variable trap is a scenario in which the independent variables become multi-collinear after addition of dummy variables.
+The `dummy variable trap` is a scenario in which the independent variables become multi-collinear after addition of dummy variables.
 
-Multi-collinearity is a phenomenon in which two or more variables are highly correlated. In simple words, it means value of one variable can be predicted from the values of other variable(s).
+`Multi-collinearity` is a phenomenon in which two or more variables are highly correlated. In simple words, it means value of one variable can be predicted from the values of other variable(s).
 
 This breaks the assumption of linear regression that observations should be independent of each other and this is what we called a dummy variable trap. By adding all the dummy variables in data, we have compromised the accuracy of the regression model.
 
-To avoid dummy variable trap we should always add one less (n-1) dummy variable then the total number of categories present in the categorical data (n) because the nth dummy variable is redundant as it carries no new information.
+To avoid `dummy variable trap` we should always add one less (n-1) dummy variable then the total number of categories present in the categorical data (n) because the nth dummy variable is redundant as it carries no new information.
 
 ### Checking for Correlations amongst our features
 
@@ -234,14 +234,14 @@ plt.show()
 `Decision Trees (DTs)` are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
 
 
-Some `advantages` of decision trees are:
+Some `Advantages` of decision trees are:
 
 - Simple to understand and to interpret. Trees can be visualized.
 - Requires little data preparation. Other techniques often require data normalization, dummy variables need to be created and blank values to be removed. Note however that this module does not support missing values.
 - The cost of using the tree (i.e., predicting data) is logarithmic in the number of data points used to train the tree.
 - Able to handle both numerical and categorical data. However, the scikit-learn implementation does not support categorical variables for now. Other techniques are usually specialized in analyzing datasets that have only one type of variable. See algorithms for more information.
 
-The `disadvantages` of decision trees include:
+The `Disadvantages` of decision trees include:
 
 - Decision-tree learners can create over-complex trees that do not generalize the data well. This is called overfitting. Mechanisms such as pruning, setting the minimum number of samples required at a leaf node or setting the maximum depth of the tree are necessary to avoid this problem.
 - Decision trees can be unstable because small variations in the data might result in a completely different tree being generated. This problem is mitigated by using decision trees within an ensemble.
@@ -323,9 +323,9 @@ Our first step should be to gather more data and perform `feature engineering`. 
 
 The best way to think about hyper-parameters is like the settings of an algorithm that can be `adjusted` to optimize performance.
 
-While model parameters are learned during training — such as the slope and intercept in a linear regression — hyper-parameters must be set by the data scientist before training. 
+While model parameters are learned during training — such as the slope and intercept in a linear regression — `hyper-parameters` must be set by the data scientist before training. 
 
-In the case of a random forest, hyper-parameters include the number of decision trees in the forest and the number of features considered by each tree when splitting a node. (The parameters of a random forest are the variables and thresholds used to split each node learned during training).
+In the case of a random forest, hyper-parameters include the `number of decision trees in the forest` and the `number of features considered by each tree when splitting a node`. (The parameters of a random forest are the variables and thresholds used to split each node learned during training).
 
 The best hyper-parameters are usually impossible to determine ahead of time, and tuning a model is where machine learning turns from a science into trial-and-error based engineering.
 
@@ -335,7 +335,7 @@ Scikit-Learn implements a set of sensible default hyper-parameters for all model
 
 Hyper-parameter tuning relies more on experimental results than theory, and thus the best method to determine the optimal settings is to try many different combinations evaluate the performance of each model. However, evaluating each model only on the training set can lead to one of the most fundamental problems in machine learning: `overfitting`.
 
-If we optimize the model for the training data, then our model will score very well on the training set, but will not be able to generalize to new data, such as in a test set. 
+If we optimize the model for the training data, then our model will score very well on the `training set`, but will not be able to generalize to new data, such as in a `test set`. 
 
 When a model performs highly on the `training set` but poorly on the `test set`, this is known as over-fitting, or essentially creating a model that knows the training set very well but cannot be applied to new problems. It’s like a student who has memorized the simple problems in the textbook but has no idea how to apply concepts in the messy real world.
 
@@ -350,7 +350,7 @@ When we approach a machine learning problem, we make sure to split our data into
 As an example, consider fitting a model with K = 5. The first iteration we train on the first four folds and evaluate on the fifth. The second time we train on the first, second, third, and fifth fold and evaluate on the fourth. 
 We repeat this procedure 3 more times, each time evaluating on a different fold. At the very end of training, we `average the performance on each of the folds` to come up with final validation metrics for the model.
 
-### Random Hyperparameter Grid
+### Random Hyper-parameter Grid
 
 To use RandomizedSearchCV, we first need to create a parameter grid to sample from during fitting:
 
@@ -375,12 +375,37 @@ random_grid = {'n_estimators': n_estimators,
                'max_depth': max_depth,
                'min_samples_split': min_samples_split,
                'min_samples_leaf': min_samples_leaf,
-               'bootstrap': [True, False]}
+               'bootstrap': [True, False]
+               }
 
 pprint(random_grid)
 
 ```
-On each iteration, the algorithm will choose a difference combination of the features. Altogether, there are 2 * 12 * 2 * 3 * 3 * 10 = 4320 settings! However, the benefit of a random search is that we are not trying every combination, but selecting at random to sample a wide range of values.
+On each iteration, the algorithm will choose a different combination of the features. Altogether, there are 2 * 12 * 2 * 3 * 3 * 10 = 4320 settings! However, the benefit of a random search is that we are not trying every combination, but selecting at random to sample a wide range of values.
+
+### Random Search Training
+Now, we instantiate the random search and fit it like any Scikit-Learn model:
+
+```python
+
+# Use the random grid to search for best hyperparameters
+# First create the base model to tune
+rf = RandomForestRegressor()
+
+# Random search of parameters, using 3 fold cross validation, 
+# search across 100 different combinations
+rf_random = RandomizedSearchCV(estimator = rf, 
+param_distributions = random_grid,
+scoring='neg_mean_squared_error', 
+n_iter = 10, cv = 5, verbose=2, 
+random_state=42, n_jobs = 1)
+
+rf_random.fit(X_train,y_train)
+
+```
+The most important arguments in `RandomizedSearchCV` are `n_iter`, which controls the number of different combinations to try, and cv which is the number of folds to use for cross validation (we use 10 and 5 respectively). 
+More iterations will cover a wider search space and more cv folds reduces the chances of `overfitting`, but raising each will increase the run time. Machine learning is a field of trade-offs, and performance vs time is one of the most fundamental.
+
 
 
 ### Training 
