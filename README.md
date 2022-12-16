@@ -423,6 +423,7 @@ We can view the best parameters from fitting the random search:
 
 From these results, we should be able to narrow the range of values for each hyperparameter.
 
+# REVISION NEEDS TO BE MADE OPEN TICKET
 
 ### Training 
 
