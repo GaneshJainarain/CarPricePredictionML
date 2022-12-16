@@ -406,6 +406,22 @@ rf_random.fit(X_train,y_train)
 The most important arguments in `RandomizedSearchCV` are `n_iter`, which controls the number of different combinations to try, and cv which is the number of folds to use for cross validation (we use 10 and 5 respectively). 
 More iterations will cover a wider search space and more cv folds reduces the chances of `overfitting`, but raising each will increase the run time. Machine learning is a field of trade-offs, and performance vs time is one of the most fundamental.
 
+We can view the best parameters from fitting the random search:
+
+```python
+
+{'bootstrap': False,
+ 'max_depth': None,
+ 'max_features': 'auto',
+ 'min_samples_leaf': 1,
+ 'min_samples_split': 10,
+ 'n_estimators': 200
+ }
+
+```
+
+
+From these results, we should be able to narrow the range of values for each hyperparameter.
 
 
 ### Training 
