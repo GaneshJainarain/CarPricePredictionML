@@ -7,9 +7,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import RandomizedSearchCV
 from pprint import pprint
+from sklearn import metrics
 
 
-df = pd.read_csv('env/Code/cardata.csv')
+df = pd.read_csv('/Users/richeyjay/Desktop/MachineLearningCarPricePrediction/env/Code/cardata.csv')
 #print("First Five Instances of Dataframe:")
 #print(df.head())
 #print("Shape of Our Dataframe:")
@@ -139,3 +140,15 @@ print('Parameters currently in use:\n')
 pprint(rf.get_params())
 print("#####")
 pprint(rf_random.best_params_)
+
+print(rf_random.best_score_)
+
+predictions = rf_random.predict(X_test)
+
+#sns.distplot(y_test-predictions)
+plt.scatter(y_test,predictions)
+plt.show()
+
+print('MAE:', metrics.mean_absolute_error(y_test, predictions))
+print('MSE:', metrics.mean_squared_error(y_test, predictions))
+print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
