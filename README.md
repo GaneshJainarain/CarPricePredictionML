@@ -330,6 +330,26 @@ In supervised machine learning applications, you’ll typically work with two su
 - A two-dimensional array with the inputs (x)
 - A one-dimensional array with the outputs (y)
 
+`options` are the optional keyword arguments that you can use to get desired behavior:
+
+- `train_size` is the number that defines the size of the training set. If you provide a float, then it must be between 0.0 and 1.0 and will define the share of the dataset used for testing. If you provide an int, then it will represent the total number of the training samples. The default value is None.
+
+- `test_size` is the number that defines the size of the test set. It’s very similar to train_size. You should provide either train_size or test_size. If neither is given, then the default share of the dataset that will be used for testing is 0.25, or 25 percent.
+
+- `random_state` is the object that controls randomization during splitting. It can be either an int or an instance of RandomState. The default value is None.
+
+- `shuffle` is the Boolean object (True by default) that determines whether to shuffle the dataset before applying the split.
+
+- `stratify` is an array-like object that, if not None, determines how to use a stratified split.
+
+
+Given two sequences, like x and y here, train_test_split() performs the split and returns four sequences (in this case NumPy arrays) in this order:
+
+- `x_train:` The training part of the first sequence (x)
+- `x_test:` The test part of the first sequence (x)
+- `y_train:` The training part of the second sequence (y)
+- `y_test:` The test part of the second sequence (y)
+
 ### Bootstrapping
 
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
