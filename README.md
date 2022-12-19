@@ -300,6 +300,36 @@ Splitting your dataset is essential for an unbiased evaluation of prediction per
 
 `NOTE` In less complex cases, when you don’t have to tune hyper-parameters, it’s okay to work with only the training and test sets.
 
+### Under-fitting and Overfitting
+
+Splitting a dataset might also be important for detecting if your model suffers from one of two very common problems, called under-fitting and overfitting:
+
+- `Under-fitting` is usually the consequence of a model being unable to encapsulate the relations among data. For example, this can happen when trying to represent nonlinear relations with a linear model. Under-fitted models will likely have poor performance with both training and test sets.
+
+- `Overfitting` usually takes place when a model has an excessively complex structure and learns both the existing relations among data and noise. Such models often have bad generalization capabilities. Although they work well with training data, they usually yield poor performance with unseen (test) data.
+
+### Application of train_test_split()
+
+```python
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+print(X_train.shape)
+```
+
+Now that you have both imported, you can use them to split data into `training sets and test sets`. You’ll split inputs and outputs at the same time, with a single function call.
+
+With `train_test_split()`, you need to provide the sequences that you want to split as well as any optional arguments. It returns a list of NumPy arrays.
+
+`arrays` is the sequence of lists, NumPy arrays, pandas DataFrames, or similar array-like objects that hold the data you want to split. All these objects together make up the dataset and must be of the same length.
+
+
+In supervised machine learning applications, you’ll typically work with two such sequences:
+
+- A two-dimensional array with the inputs (x)
+- A one-dimensional array with the outputs (y)
+
 ### Bootstrapping
 
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
