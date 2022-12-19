@@ -277,8 +277,29 @@ print(model.feature_importances_)
 feat_importances = pd.Series(model.feature_importances_, index=X.columns)
 feat_importances.nlargest(5).plot(kind='barh')
 plt.show() 
-
 ```
+
+### The Importance of Data Splitting
+
+One of the key aspects of supervised machine learning is model evaluation and validation. When you evaluate the `predictive performance` of your model, it’s essential that the process be unbiased. Using train_test_split() from the data science library scikit-learn, you can split your dataset into subsets that minimize the potential for bias in your evaluation and validation process.
+
+How you measure the precision of your model depends on the type of a problem you’re trying to solve. In `regression analysis`, you typically use the coefficient of determination, root-mean-square error, mean absolute error, or similar quantities. For `classification problems`, you often apply accuracy, precision, recall, F1 score, and related indicators.
+
+What’s most important to understand is that you usually need `unbiased evaluation` to properly use these measures, assess the predictive performance of your model, and validate the model.
+
+This means that you can’t evaluate the predictive performance of a model with the same data you used for training. You need evaluate the model with fresh data that hasn’t been seen by the model before. You can accomplish that by `splitting your dataset` before you use it.
+
+### Training, Validation, and Test Sets
+Splitting your dataset is essential for an unbiased evaluation of prediction performance. In most cases, it’s enough to split your dataset randomly into three `subsets`:
+
+- The `training set` is applied to train, or `fit`, your model. For example, you use the training set to find the optimal weights, or coefficients, for linear regression, logistic regression, or neural networks.
+
+- The `validation set` is used for unbiased model evaluation during hyper-parameter tuning. For example, when you want to find the optimal number of neurons in a neural network or the best kernel for a support vector machine, you experiment with different values. For each considered setting of hyper-parameters, you fit the model with the training set and assess its performance with the validation set.
+
+- The `test set` is needed for an unbiased evaluation of the final model. You shouldn’t use it for fitting or validation.
+
+`NOTE` In less complex cases, when you don’t have to tune hyper-parameters, it’s okay to work with only the training and test sets.
+
 ### Bootstrapping
 
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
