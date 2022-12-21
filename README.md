@@ -350,7 +350,6 @@ Given two sequences, like x and y here, train_test_split() performs the split an
 - `y_train:` The training part of the second sequence (y)
 - `y_test:` The test part of the second sequence (y)
 
-
 ### Bootstrapping
 
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
