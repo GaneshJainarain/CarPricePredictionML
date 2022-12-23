@@ -352,7 +352,6 @@ Given two sequences, like x and y here, train_test_split() performs the split an
 
 ### Bootstrapping
 
-
 `Bootstrapping` is the process of randomly sampling subsets of a dataset over a given number of iterations and a given number of variables. These results are then averaged together to obtain a more powerful result. Bootstrapping is an example of an applied ensemble model.
 
 The bootstrapping `Random Forest` algorithm combines ensemble learning methods with the decision tree framework to create multiple randomly drawn decision trees from the data, averaging the results to output a new result that often leads to strong predictions/classifications.
