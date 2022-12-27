@@ -437,6 +437,7 @@ max_depth.append(None)
 min_samples_split = [2, 5, 10, 15, 100]
 # Minimum number of samples required at each leaf node
 min_samples_leaf = [1, 2, 5, 10]
+
 # Method of selecting samples for training each tree
 bootstrap = [True, False]
 #Create the random grid
