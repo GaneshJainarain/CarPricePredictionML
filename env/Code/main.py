@@ -74,6 +74,7 @@ plt.figure(figsize=(10,10))
 X = final_dataset.iloc[:,1:]
 y = final_dataset.iloc[:,0]
 
+
 print(X['Owner'].unique())
 
 print("Our Independent Features:")
