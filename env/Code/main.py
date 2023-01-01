@@ -68,36 +68,42 @@ plt.figure(figsize=(10,10))
 #plot heat map
 #print(sns.heatmap(final_dataset[top_corr_features].corr(),annot=True,cmap="RdYlGn"))
 #plt.show()
-
+ 
 #Selling Price is the dependent Feature everything else is an Independent Feature
 
 X = final_dataset.iloc[:,1:]
 y = final_dataset.iloc[:,0]
 
-#print("Our Independent Features:")
-#print(X.head())
-#print("Our Dependent Feature:")
-#print(y.head())
+print(X['Owner'].unique())
+
+print("Our Independent Features:")
+print(X.head())
+print("Our Dependent Feature:")
+print(y.head())
 
 
 model = ExtraTreesRegressor()
 model.fit(X,y)
-#print(model.feature_importances_)
+
+print(model.feature_importances_)
 
 #plot graph of feature importances for better visualization
+
 feat_importances = pd.Series(model.feature_importances_, index=X.columns)
-feat_importances.nlargest(5).plot(kind='barh')
-#plt.show() 
+feat_importances.nlargest(7).plot(kind='barh')
+plt.show() 
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 print(X_train.shape)
+
 regressor = RandomForestRegressor()
+
 n_estimators = [int(x) for x in np.linspace(start = 100, stop = 1200, num = 12)]
 print(n_estimators)
 
 #Randomized Search CV
 
-# Number of trees in random forest
+# Number of trees in random forest 
 n_estimators = [int(x) for x in np.linspace(start = 100, stop = 1200, num = 12)]
 # Number of features to consider at every split
 max_features = ['auto', 'sqrt']
@@ -125,6 +131,8 @@ pprint(random_grid)
 # First create the base model to tune
 rf = RandomForestRegressor()
 
+
+
 # Random search of parameters, using 3 fold cross validation, 
 # search across 100 different combinations
 rf_random = RandomizedSearchCV(estimator = rf, 
@@ -135,6 +143,10 @@ random_state=42, n_jobs = 1)
 
 rf_random.fit(X_train,y_train)
 
+
+print(model.score(X_train, y_train))
+print(model.score(X_test, y_test))
+'''
 # Look at parameters used by our current forest
 print('Parameters currently in use:\n')
 pprint(rf.get_params())
@@ -152,3 +164,4 @@ plt.show()
 print('MAE:', metrics.mean_absolute_error(y_test, predictions))
 print('MSE:', metrics.mean_squared_error(y_test, predictions))
 print('RMSE:', np.sqrt(metrics.mean_squared_error(y_test, predictions)))
+'''
