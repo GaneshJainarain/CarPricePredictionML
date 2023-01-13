@@ -492,6 +492,7 @@ We can view the best parameters from fitting the random search:
  'n_estimators': 200
  }
 
+
 ```
 
 
