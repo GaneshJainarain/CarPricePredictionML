@@ -2,18 +2,11 @@
 
 
 
-This dataset contains information about used cars.
-This data can be used for a lot of purposes such as price prediction to exemplify the use of linear regression in Machine Learning.
-The columns in the given dataset are as follows:
+You as a Data scientist are required to apply some data science techniques for the price of cars with the available independent variables.
 
-name
-year
-selling_price
-km_driven
-fuel
-seller_type
-transmission
-Owner
+That should help the management to understand how exactly the prices vary with the independent variables. They can accordingly manipulate the design of the cars, the business strategy etc. to meet certain price levels.
+
+
 ## Reading our Data into a Pandas Dataframe
 - Read our data into a pandas dataframe, with `.read_csv`
 - Print out the head of our dataframe with `.head()`
@@ -498,7 +491,6 @@ We can view the best parameters from fitting the random search:
 
 From these results, we should be able to narrow the range of values for each hyperparameter.
 
-# REVISION NEEDS TO BE MADE OPEN TICKET
 
 ### Training 
 
