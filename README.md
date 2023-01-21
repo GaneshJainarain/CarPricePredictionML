@@ -27,6 +27,7 @@ print(df.shape)
 As we can see from the output of df.shape and df.head()
 we have 301 rows of data and 9 features denoted by (301, 9)
 Our 9 features include:
+
 - Car_Name
 - Year
 - Selling_Price
